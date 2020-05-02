@@ -1,12 +1,10 @@
 def bubble_sort(array)
   until is_sorted(array) do
-    for first in 0..(array.length - 1)
-      for second in 1..(array.length - 2)
-        if array[first] > array[second]
-          temp = array[second]
-          array[second] = array[first]
-          array[first] = temp
-        end
+    for i in 0...(array.length - 1)
+      if array[i] > array[i + 1]
+        temp = array[i + 1]
+        array[i + 1] = array[i]
+        array[i] = temp
       end
     end
   end
@@ -14,11 +12,9 @@ def bubble_sort(array)
 end
 
 def is_sorted(array)
-  array[0..-2].each do |first|
-    array[1..-1].each do |second|
-      if first > second
-        return false
-      end
+  for i in 0...(array.length - 1)
+    if array[i] > array[i + 1]
+      return false
     end
   end
   return true
